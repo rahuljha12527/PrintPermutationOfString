@@ -1,0 +1,36 @@
+/******************************************************************************
+PermutationOfString 
+          ****/
+
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+void permutation(string input,int i,int n){
+    
+    if(i==n-1){
+        cout<<input<<endl;
+        return;
+    }
+    
+    for(int j=i;j<n;j++){
+        
+        swap(input[i],input[j]);
+        
+        permutation(input,i+1,n);
+        
+        swap(input[i],input[j]);
+    }
+}
+
+void printPermutation(string input){
+    
+        permutation(input,0,input.length());
+}
+
+int main(){
+    string input;
+    cin>>input;
+    printPermutation(input);
+    return 0; 
+}
